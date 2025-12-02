@@ -1,0 +1,36 @@
+.search-area {
+  margin-bottom: 4rem;
+}
+.search-area__search {
+  font-family: "Merriweather", serif;
+  text-align: center;
+}
+.search-area__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.search-area__description {
+  font-size: 1.15rem;
+  color: #605c59;
+  margin-bottom: 1rem;
+}
+.search-area__form {
+  position: relative;
+}
+.search-area__input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #605c59;
+  border-radius: 0.25rem;
+  height: 2.8125rem;
+}
+.search-area__submit {
+  border: none;
+  background: transparent;
+  outline: none;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}

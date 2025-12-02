@@ -1,0 +1,22 @@
+.page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+}
+.page__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.page__nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.125rem;
+}
+.page__nav-link {
+  font-size: 1rem;
+  color: #605c59;
+  border: none;
+  cursor: pointer;
+}
