@@ -1,11 +1,11 @@
 import "./Header.css";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
     <header className="page__header">
       <h1 className="page__logo">
-        <NavLink to="./" className="page__logo-link">
+        <NavLink to="/" className="page__logo-link">
           JBNU
         </NavLink>
       </h1>

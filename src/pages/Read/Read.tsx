@@ -1,5 +1,5 @@
 import { dummyImage1 } from "../../assets/images/images";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import "./Read.css";
 
 export default function Read() {
@@ -66,7 +66,7 @@ export default function Read() {
         <h3 className="page__recommend-title">Recommended Reading</h3>
         <ul className="page__recommend-lists">
           <li>
-            <NavLink to="">
+            <NavLink to="/read/1">
               <div className="page__recommend-list">
                 <img src={dummyImage1} alt="" className="page__recommend-img" />
                 <div>
@@ -89,7 +89,7 @@ export default function Read() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="">
+            <NavLink to="read/1">
               <div className="page__recommend-list">
                 <img src={dummyImage1} alt="" className="page__recommend-img" />
                 <div>

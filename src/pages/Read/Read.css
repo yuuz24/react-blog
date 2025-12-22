@@ -105,3 +105,48 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
 }
+
+@media (min-width: 320px) {
+  .page__read-title {
+    font-size: 1.625rem;
+  }
+}
+
+@media (min-width: 420px) {
+  .page__read-desc {
+    font-size: 1rem;
+  }
+  .page__read-desc p {
+    margin-bottom: 0.5rem;
+  }
+  .page__recommend-title {
+    font-size: 1.5rem;
+  }
+  .page__recommend-subtitle {
+    font-size: 1.175rem;
+  }
+  .page__recommend-desc {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .page__recommend-list {
+    flex-direction: row;
+  }
+  .page__recommend-img {
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 768px) {
+  .page__read-title {
+    font-size: 1.825rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page__read-desc {
+    font-size: 1rem;
+  }
+}

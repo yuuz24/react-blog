@@ -1,9 +1,9 @@
 import RootLayout from "./components/RootLayout";
-import Auth from "./pages/Auth";
+import Auth from "./pages/Auth/Auth";
 import Home from "./pages/Home/Home";
-import Write from "./pages/Write";
+import Write from "./pages/Write/Write";
 import Read from "./pages/Read/Read";
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (

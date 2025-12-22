@@ -10,3 +10,17 @@
 .page__footer-copy {
   color: #605c59;
 }
+
+.page__footer-list {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.page__footer-link {
+  color: #605c59;
+}
+
+.page__footer-link:hover {
+  text-decoration: underline;
+}

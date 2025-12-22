@@ -37,230 +37,9 @@ button {
   margin: 3rem 0;
   min-height: calc(100vh - 131px - 128px - 96px);
 }
-/* posts */
-.posts-area {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-.posts-area__post-link {
-  display: block;
-}
-.posts-area__post-tag {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 4.5rem;
-  height: 1.625rem;
-  font-size: 0.75rem;
-  color: #ffffff;
-  background: #283a61;
-  margin: 0.325rem 0;
-}
-.posts-area__post-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-.posts-area__post-meta {
-  font-size: 0.875rem;
-  color: #515151;
-  margin: 0.25rem 0;
-}
-.posts-area_post-excerpt {
-  font-size: 0.875rem;
-  color: #434343;
-  margin-bottom: 1rem;
-}
-.posts-area__post-image {
-  width: 100%;
-  max-width: 100%;
-  height: 16.625rem;
-  object-fit: cover;
-}
-.posts-area__post-excerpt {
-  overflow: hidden;
-  display: -webkit-box;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
 
-/* write.html */
-.page__write {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  max-width: 42rem;
-  width: 100%;
-}
+/* index.css (전역/레이아웃/루트) */
 
-.page__write-text {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-  color: #111827;
-}
-.page__write-form {
-  display: grid;
-  gap: 1rem;
-}
-.page__write-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-  color: #111827;
-}
-.page__write-input {
-  display: block;
-  padding: 0.625rem;
-  border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
-  width: 100%;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #111827;
-  background-color: #f9fafb;
-}
-.page__write-select {
-  display: block;
-  padding: 0.625rem;
-  border-radius: 0.5rem;
-  border-width: 1px;
-  border-color: #d1d5db;
-  width: 100%;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #111827;
-  background-color: #f9fafb;
-}
-.page__write-file {
-  display: block;
-  border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
-  width: 100%;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #111827;
-  cursor: pointer;
-  height: 42px;
-  padding: 7px;
-  background-color: #f9fafb;
-}
-.page__write-file--hidden {
-  display: none;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-  color: #111827;
-}
-.page__write-textarea {
-  display: block;
-  padding: 0.625rem;
-  border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
-  width: 100%;
-  height: 15rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #111827;
-  background-color: #f9fafb;
-}
-.page--btn {
-  display: inline-flex;
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  margin-top: 1rem;
-  align-items: center;
-  border-radius: 0.5rem;
-  border-width: 1px;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* Authentication Page Block */
-.page-auth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.page-auth__container {
-  width: 100%;
-  max-width: 400px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.page-auth__toggle {
-  display: flex;
-  background-color: #000;
-}
-
-.page-auth__toggle-button {
-  flex: 1;
-  padding: 15px;
-  border: none;
-  background-color: #000;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.page-auth__toggle-button--active {
-  background-color: #333;
-}
-
-.page-auth__form-section {
-  padding: 30px;
-}
-
-.auth-form {
-  display: none;
-}
-
-.auth-form label {
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
-  display: inline-block;
-}
-
-.auth-form--active {
-  display: block;
-}
-
-.auth-form__input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.auth-form__submit {
-  width: 100%;
-  padding: 12px;
-  background-color: #000;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.auth-form__submit:hover {
-  background-color: #333;
-}
 @media (min-width: 320px) {
   html {
     font-size: 14px;
@@ -273,36 +52,12 @@ button {
   .page__main {
     min-height: calc(100vh - 114px - 110px - 96px);
   }
-  .posts-area {
-    grid-template-columns: 1fr;
-  }
-  .search-area__description {
-    font-size: 1.125rem;
-  }
-  .page__read-title {
-    font-size: 1.625rem;
-  }
 }
 
 @media (min-width: 420px) {
   html {
     font-size: 15px;
     position: static;
-  }
-  .page__read-desc {
-    font-size: 1rem;
-  }
-  .page__read-desc p {
-    margin-bottom: 0.5rem;
-  }
-  .page__recommend-title {
-    font-size: 1.5rem;
-  }
-  .page__recommend-subtitle {
-    font-size: 1.175rem;
-  }
-  .page__recommend-desc {
-    font-size: 1rem;
   }
 }
 
@@ -318,43 +73,16 @@ button {
   .page__main {
     min-height: calc(100vh - 131px - 128px - 96px);
   }
-  .page__write-form {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-  }
-  .page__write-group {
-    grid-column: span 2 / span 2;
-  }
-  .page__recommend-list {
-    flex-direction: row;
-  }
-  .page__recommend-img {
-    max-width: 250px;
-  }
 }
+
 @media (min-width: 768px) {
   .page {
     max-width: 768px;
   }
-  .posts-area {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-  .page__read-title {
-    font-size: 1.825rem;
-  }
 }
+
 @media (min-width: 1024px) {
   .page {
     max-width: 1024px;
-  }
-  .search-area__title {
-    font-size: 2.25rem;
-  }
-  .search-area__description {
-    font-size: 1.35rem;
-  }
-  .page__read-desc {
-    font-size: 1rem;
   }
 }
