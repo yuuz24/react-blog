@@ -1,107 +1,32 @@
-import { dummyImage1, dummyImage2 } from "../../assets/images/images";
-import { Link } from "react-router-dom";
+import { useAxios } from "../../hooks/useAxios";
+import PostItem from "./PostItem";
+import { useSearchParams } from "react-router-dom";
 
 export default function PostArea() {
+  const [searchParams] = useSearchParams();
+  const q = searchParams.get("q");
+  const { data, error, isLoading } = useAxios<Post[]>(
+    q ? "/posts/search?title=" + q : "/posts",
+    []
+  );
+
+  if (isLoading) {
+    return <section className="posts-area">불러오는 중...</section>;
+  }
+
+  if (error) {
+    return (
+      <section className="posts-area">게시글을 불러오지 못했어요.</section>
+    );
+  }
+
+  if (!data || data.length === 0) {
+    return <section className="posts-area">게시글이 아직 없어요.</section>;
+  }
+
   return (
     <section className="posts-area">
-      <article className="posts-area__post">
-        <Link to="/read/1" className="posts-area__post-link">
-          <img
-            src={dummyImage1}
-            alt="dummy-image-1"
-            className="posts-area__post-image"
-          />
-          <em className="posts-area__post-tag">Travel</em>
-          <h2 className="posts-area__post-title">
-            My Travel Stories from the Past Year
-          </h2>
-          <p className="posts-area__post-meta">
-            George Costanazv • Aug 16, 2025
-          </p>
-          <p className="posts-area__post-excerpt">
-            Over the past year, I had the opportunity to explore new places and
-            immerse myself in different cultures. From the vibrant streets of
-            Europe to the serene beaches of Asia, each journey taught me
-            something unique. The experience of stepping out of my comfort zone
-            helped me grow as a person, providing new perspectives on life.
-            Traveling also allowed me to reconnect with myself, as I embraced
-            moments of solitude while navigating unfamiliar environments.
-          </p>
-        </Link>
-      </article>
-      <article className="posts-area__post">
-        <Link to="/read/1" className="posts-area__post-link">
-          <img
-            src={dummyImage2}
-            alt="dummy-image-2"
-            className="posts-area__post-image"
-          />
-          <em className="posts-area__post-tag">Food</em>
-          <h2 className="posts-area__post-title">
-            Delicious Chicken Dishes & Tips
-          </h2>
-          <p className="posts-area__post-meta">
-            George Costanazv • Aug 16, 2025
-          </p>
-          <p className="posts-area__post-excerpt">
-            Chicken is one of the most versatile and beloved foods around the
-            world. Whether it’s roasted, fried, grilled, or baked, chicken has a
-            unique way of fitting into every culture and cuisine. In this post,
-            we’ll explore everything you need to know about chicken, including
-            delicious recipes, helpful cooking tips, and some fun facts you
-            might not know!
-          </p>
-        </Link>
-      </article>
-      <article className="posts-area__post">
-        <Link to="/read/1" className="posts-area__post-link">
-          <img
-            src={dummyImage1}
-            alt="dummy-image-1"
-            className="posts-area__post-image"
-          />
-          <em className="posts-area__post-tag">Travel</em>
-          <h2 className="posts-area__post-title">
-            My Travel Stories from the Past Year
-          </h2>
-          <p className="posts-area__post-meta">
-            George Costanazv • Aug 16, 2025
-          </p>
-          <p className="posts-area__post-excerpt">
-            Over the past year, I had the opportunity to explore new places and
-            immerse myself in different cultures. From the vibrant streets of
-            Europe to the serene beaches of Asia, each journey taught me
-            something unique. The experience of stepping out of my comfort zone
-            helped me grow as a person, providing new perspectives on life.
-            Traveling also allowed me to reconnect with myself, as I embraced
-            moments of solitude while navigating unfamiliar environments.
-          </p>
-        </Link>
-      </article>
-      <article className="posts-area__post">
-        <Link to="/read/1" className="posts-area__post-link">
-          <img
-            src={dummyImage2}
-            alt="dummy-image-2"
-            className="posts-area__post-image"
-          />
-          <em className="posts-area__post-tag">Food</em>
-          <h2 className="posts-area__post-title">
-            Delicious Chicken Dishes & Tips
-          </h2>
-          <p className="posts-area__post-meta">
-            George Costanazv • Aug 16, 2025
-          </p>
-          <p className="posts-area__post-excerpt">
-            Chicken is one of the most versatile and beloved foods around the
-            world. Whether it’s roasted, fried, grilled, or baked, chicken has a
-            unique way of fitting into every culture and cuisine. In this post,
-            we’ll explore everything you need to know about chicken, including
-            delicious recipes, helpful cooking tips, and some fun facts you
-            might not know!
-          </p>
-        </Link>
-      </article>
+      {data && data.map((post) => <PostItem key={post.id} post={post} />)}
     </section>
   );
 }

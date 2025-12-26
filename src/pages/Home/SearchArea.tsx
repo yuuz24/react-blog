@@ -1,6 +1,26 @@
+import { useEffect, useRef, useState } from "react";
 import { search } from "../../assets/images/images";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchArea() {
+  const [query, setQuery] = useState("");
+  const debounceTimer = useRef<null | number>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (debounceTimer.current) {
+      clearTimeout(debounceTimer.current);
+    }
+    debounceTimer.current = setTimeout(() => {
+      navigate(query ? "?q=" + query : "/");
+    }, 300);
+    return () => {
+      if (debounceTimer.current) {
+        clearTimeout(debounceTimer.current);
+      }
+    };
+  }, [navigate, query]);
+
   return (
     <section className="search-area">
       <article className="search-area__search">
@@ -15,6 +35,8 @@ export default function SearchArea() {
             placeholder="Search"
             className="search-area__input"
             autoComplete="off"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
           <button type="submit" className="search-area__submit">
             <img src={search} alt="search-icon" className="search-area__icon" />

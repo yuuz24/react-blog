@@ -1,11 +1,71 @@
+import { axiosInstance } from "../../api/axiosInstance";
 import "./Write.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Write() {
+  const [title, setTitle] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  const [thumbnail, setThumbnail] = useState<string | null>(null);
+  const [desc, setDesc] = useState<string>("");
+  const navigate = useNavigate();
+
+  const encodeFileToBase64 = (image: File) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+
+      reader.onload = (event) => {
+        const target = event.target as FileReader | null;
+        if (target && target.result) {
+          resolve(target.result);
+        } else {
+          reject(new Error("File reading failed"));
+        }
+      };
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = (event.target.files && event.target.files[0]) || null;
+    if (!file) return;
+    const convertedFile = await encodeFileToBase64(file);
+    setThumbnail(convertedFile as string);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      if (!title || !category || !thumbnail || !desc || !username) {
+        alert("입력 값이 누락되었습니다.");
+        return;
+      }
+      const { status } = await axiosInstance.post("/posts", {
+        title,
+        category,
+        thumbnail,
+        desc,
+        username,
+      });
+      if (status === 201) {
+        alert("글이 등록되었습니다.");
+        navigate("/");
+      }
+    } catch (error) {
+      alert("글 등록에 실패했습니다.");
+      console.error("Error submitting form:", error);
+    }
+  };
+
   return (
     <main className="page__main">
       <div className="page__write">
         <h2 className="page__write-text">새로운 글 작성</h2>
-        <form action="#">
+        <form action="#" onSubmit={handleSubmit}>
           <div className="page__write-form">
             <div className="page__write-group">
               <label htmlFor="title" className="page__write-label">
@@ -17,6 +77,8 @@ export default function Write() {
                 id="title"
                 className="page__write-input"
                 placeholder="Type product name"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
                 required
               />
             </div>
@@ -24,7 +86,13 @@ export default function Write() {
               <label htmlFor="category" className="page__write-label">
                 카테고리
               </label>
-              <select id="category" className="page__write-select" required>
+              <select
+                id="category"
+                className="page__write-select"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                required
+              >
                 <option value="">Select category</option>
                 <option value="Travel">Travel</option>
                 <option value="Food">Food</option>
@@ -41,6 +109,8 @@ export default function Write() {
                 id="writer"
                 className="page__write-input"
                 placeholder="Type product name"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </div>
@@ -60,6 +130,7 @@ export default function Write() {
                   aria-describedby="user_avatar_help"
                   id="user_avatar"
                   type="file"
+                  onChange={handleFileChange}
                   accept="image/*"
                   required
                 />
@@ -73,6 +144,8 @@ export default function Write() {
                 id="description"
                 className="page__write-textarea"
                 placeholder="Your description here"
+                value={desc}
+                onChange={(e) => setDesc(e.target.value)}
                 required
               ></textarea>
             </div>
