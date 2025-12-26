@@ -9,10 +9,9 @@ export default function RecommendationArea() {
     []
   );
 
-  if (data.length === 0) return null;
-
   if (isLoading) return <div className="page__recommend">로딩 중...</div>;
   if (error) return <div className="page__recommend">불러오기 실패</div>;
+  if (data.length === 0) return null;
 
   return (
     <article className="page__recommend">

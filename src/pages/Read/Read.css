@@ -59,6 +59,8 @@
   line-height: 1.75rem;
   max-width: 800px;
   color: #434343;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .page__read-desc p {
   margin-bottom: 1rem;
@@ -94,6 +96,8 @@
   font-size: 1.325rem;
   line-height: 1.75rem;
   font-weight: 700;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .page__recommend-desc {
   font-size: 1rem;
@@ -102,6 +106,8 @@
   overflow: hidden;
   display: -webkit-box;
   line-clamp: 4;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
 }

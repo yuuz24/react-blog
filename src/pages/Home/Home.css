@@ -57,16 +57,22 @@
 .posts-area__post-title {
   font-size: 1.3rem;
   font-weight: bold;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .posts-area__post-meta {
   font-size: 0.875rem;
   color: #515151;
   margin: 0.25rem 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .posts-area__post-excerpt {
   font-size: 0.875rem;
   color: #434343;
   margin-bottom: 1rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .posts-area__post-image {
   width: 100%;
